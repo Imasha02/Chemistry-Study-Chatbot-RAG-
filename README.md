@@ -23,7 +23,6 @@ PDF  ->  extract.py  ->  chunk.py  ->  build_index.py  ->  search  ->  Ollama  -
 | 4 | `build_index.py` | Turns each chunk into a vector with the `BAAI/bge-small-en-v1.5` embedding model and stores them in a Chroma database (`chroma_db/`, collection `chem`) |
 | 5 | `app.py` | Streamlit chat window: searches the index, sends the best chunks and your question to Ollama, shows the answer with its sources |
 
-Steps 4 and 5 are in progress.
 
 ## What `chunk.py` does
 
@@ -32,7 +31,6 @@ Steps 4 and 5 are in progress.
 3. Removes the repeated header and page number, restores lost reaction arrows as `->` (a best guess), and marks garbled formulas as `[?]`.
 4. Finds the book's own section headings (like `2.3.1 Hybridization`) and starts a new section at each one.
 5. Splits each section into chunks of about 220 words with a 30-word overlap, and adds a breadcrumb such as `Unit 2: Structure and Bonding > 2.3.3 Resonance structures`.
-6. Flags any chunk containing `[?]` or sitting on a garbled page with `needs_vision_check`.
 
 ## Requirements
 
@@ -53,16 +51,6 @@ streamlit run app.py     # start the chatbot
 ```
 
 3. Open `chunks_preview.txt` after step 2 and proofread a few chunks, especially those marked `[CHECK: garbled text]`.
-
-## Using a different book
-
-`chunk.py` is tuned to the A/L Inorganic Chemistry resource book. For another book, change these at the top of the file:
-
-- `FRONT_MATTER_LAST_PDF_PAGE` and `PAGE_OFFSET`
-- `UNIT_TITLES` and `UNIT_SECTION_PREFIX`
-- `HEADER_RE` (the pattern for the running page header)
-
-Some of the cleaning tricks (such as arrow restoration) may not apply.
 
 ## Known limitations
 
