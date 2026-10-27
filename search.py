@@ -1,13 +1,4 @@
-"""
-search.py  --  Step 5b: ask a question, see which chunks come back. No AI model involved.
-
-Usage:
-    python search.py "State Hund's rule"
-    python search.py            (then type questions one at a time; empty line to quit)
-"""
-
 import sys
-
 import chromadb
 from sentence_transformers import SentenceTransformer
 
