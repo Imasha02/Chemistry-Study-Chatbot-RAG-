@@ -1,10 +1,3 @@
-"""
-app.py  --  Step 7: a chat window for your study bot.
-
-Run:  streamlit run app.py
-(needs Ollama running, plus chroma_db built by build_index.py)
-"""
-
 import streamlit as st
 
 from ask import answer, MIN_SCORE, TOP_K, pages_text
