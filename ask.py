@@ -1,24 +1,15 @@
-"""
-ask.py  --  Step 6: ask a question and get a written answer from the local model,
-            using only the chunks that search finds. Needs Ollama running.
-
-Usage:
-    python ask.py "Why is CO2 non-polar?"
-    python ask.py            (then type questions one at a time; empty line to quit)
-"""
-
 import json
 import sys
 import urllib.error
 import urllib.request
 
-from search import search          # the search.py you already have
+from search import search         
 
-MODEL = "llama3.2:3b"               # the model you pulled with Ollama
+MODEL = "llama3.2:3b"               
 OLLAMA_URL = "http://localhost:11434/api/chat"
-TOP_K = 4                           # how many chunks to show the model
-MIN_SCORE = 0.60                    # best match below this -> say "Not in the book"
-                                    # (a starting guess from our tests; we will tune it)
+TOP_K = 4                           
+MIN_SCORE = 0.60                   
+                                    
 
 SYSTEM_PROMPT = """You are a study assistant for a Grade 12 A/L Chemistry resource book.
 Rules:
