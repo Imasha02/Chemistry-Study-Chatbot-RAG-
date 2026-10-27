@@ -58,8 +58,9 @@ streamlit run app.py     # start the chatbot
 - Restored arrows are always `->`, so equilibrium arrows cannot be told apart.
 - Tables from the PDF come out flattened.
 - The source book has its own typos, which are kept as they are.
-- Small local models can struggle with calculations, so check numerical answers against the book.
-- If you change the embedding model, delete `chroma_db/` and rebuild the index.
+- Small local model - A 3B model is weaker than hosted models, especially on calculations and on explaining reasoning in depth. Treat answers as a pointer to the cited page.
+- The "Not in the book" cutoff is a rough guess (0.60). The margin between in-book and out-of-book scores was small in manual tests, so the prompt also tells the model to refuse.
+- Testing so far is manual: a handful of questions checked by hand, not an automated evaluation. Do not read this as a measured accuracy figure.
 
 ## Tech stack
 
