@@ -10,9 +10,9 @@ PREVIEW_FILE = "chunks_preview.txt"
 FRONT_MATTER_LAST_PDF_PAGE = 10   
 PAGE_OFFSET = 10                 
 
-MAX_WORDS = 220                   # split a section if it is longer than this
-OVERLAP_WORDS = 30                # words repeated between split pieces
-MIN_WORDS = 25                    # tiny leftovers get merged into the previous chunk
+MAX_WORDS = 220                   
+OVERLAP_WORDS = 30                
+MIN_WORDS = 25                    
 
 UNIT_TITLES = {
     1: "Atomic Structure",
